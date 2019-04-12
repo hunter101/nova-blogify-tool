@@ -2,6 +2,7 @@
 
 namespace Mattmangoni\NovaBlogifyTool\Resources;
 
+use App\Helpers\SubscriptionFrequencyCalculator;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class Image extends Resource
      * The single value that should be used to represent the resource when being displayed.
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -72,6 +73,7 @@ class Image extends Resource
                         'max:255',
                     ]
                 )
+                ->hideFromIndex()
                 ->hideWhenCreating(),
 
             Text::make('Filename')
@@ -84,7 +86,13 @@ class Image extends Resource
                     ]
                 )
                 ->hideWhenCreating()
+                ->hideFromIndex()
                 ->hideWhenUpdating(),
+
+            Text::make("URL", function() {
+                $url = "https://res.cloudinary.com/de06firjo/image/upload/c_fill,g_auto,w_1000/" . $this->filename;
+                return "<a target='_blank' href='$url'>$url</a>";
+            })->asHtml(),
 
             Text::make('Thumbnail')
                 ->sortable()

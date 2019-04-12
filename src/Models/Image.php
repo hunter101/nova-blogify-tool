@@ -7,13 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+    
+    /**
      * Fillable properties.
      * @var array
      */
     protected $fillable = [
         'title',
         'filename',
-        'thumbnail',
         'size',
     ];
 
@@ -23,15 +32,6 @@ class Image extends Model
      */
     public function getLinkAttribute()
     {
-        return url('uploads/images/'.$this->filename);
-    }
-
-    /**
-     * Get image thumbnail's link.
-     * @return string
-     */
-    public function getThumbnailLinkAttribute()
-    {
-        return url('uploads/images/'.config('nova-blogify.image_settings.disk').$this->thumbnail);
+        return url('storage/'.$this->filename);
     }
 }

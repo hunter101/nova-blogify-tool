@@ -21,6 +21,9 @@ return [
         'tags' => [
             'search' => ['id', 'name'],
         ],
+        'images' => [
+            'search' => ['id'],
+        ],
     ],
 
     'user_model' => env('BLOGIFY_USER_MODEL', App\User::class),

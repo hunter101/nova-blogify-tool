@@ -15,6 +15,5 @@ class ImageObserver
     public function deleting(Image $image)
     {
         Storage::disk(config('nova-blogify.image_settings.disk'))->delete($image->filename);
-        Storage::disk(config('nova-blogify.image_settings.disk'))->delete(config('nova-blogify.image_settings.path_thumb').$image->thumbnail);
     }
 }

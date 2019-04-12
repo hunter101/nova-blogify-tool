@@ -322,7 +322,7 @@
              */
             hasImage() {
                 return (
-                    Boolean(this.field.value || this.field.thumbnailUrl || this.imagePreview) &&
+                    Boolean(this.field.value || this.imagePreview) &&
                     !Boolean(this.deleted) &&
                     !Boolean(this.missing)
                 )
@@ -340,7 +340,7 @@
              * Determine whether the field should show the loader component
              */
             shouldShowLoader() {
-                return !Boolean(this.deleted) && Boolean(this.field.thumbnailUrl)
+                return !Boolean(this.deleted)
             },
 
             /**

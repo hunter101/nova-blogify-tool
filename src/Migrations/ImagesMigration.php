@@ -11,9 +11,8 @@ class ImagesMigration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->unique();
-            $table->string('filename')->unique();
-            $table->string('thumbnail')->unique();
+            $table->string('title');
+            $table->string('filename');
             $table->string('size');
             $table->timestamps();
         });
