@@ -23,9 +23,9 @@ class MigrationController extends BlogifyBaseController
         }
     }
 
-    public function checkMigrations (Request $request) {
-        return response()->json([
-            'installed' => Blogify::isInstalled(),
-        ], 200);
+    protected function checkMigrations (Request $request) {
+//        return response()->json([
+//            'installed' => Blogify::isInstalled(),
+//        ], 200);
     }
 }

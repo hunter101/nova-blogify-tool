@@ -15,7 +15,6 @@ use Mattmangoni\NovaBlogifyTool\Bootstrap\Blogify;
 |
 */
 
-Route::get("/check-migrations, 'Mattmangoni\NovaBlogifyTool\Http\Controllers\MigrationController@checkMigrations");
 Route::get('/migrate-tables', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\MigrationController@execute');
 Route::get('/reset-content', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\ResetController@execute');
 Route::get('/uninstall', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\UninstallController@execute');
