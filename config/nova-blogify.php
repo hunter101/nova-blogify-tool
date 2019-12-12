@@ -15,7 +15,7 @@ return [
         ],
 
         'comments' => [
-            'search' => ['id', 'name'],
+            'search' => ['id'],
         ],
 
         'tags' => [
