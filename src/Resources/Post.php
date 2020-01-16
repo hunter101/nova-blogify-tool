@@ -6,6 +6,7 @@ use App\Nova\User;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Image as ImageField;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
@@ -62,6 +63,9 @@ class Post extends Resource
             BelongsTo::make('Author', 'author', User::class)
                 ->sortable()
                 ->rules(['required']),
+
+//            ImageField::make("Image")->disk('images'),
+
 
             ImageUpload::make('Image', 'image', Image::class)
                 ->store(new StoreImage)

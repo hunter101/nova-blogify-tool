@@ -10,5 +10,5 @@ class ImageUpload extends Image
      * The field's component.
      * @var string
      */
-    public $component = 'image-upload-preview';
+//    public $component = 'image-upload-preview';
 }
