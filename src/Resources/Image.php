@@ -90,7 +90,9 @@ class Image extends Resource
                 ->hideWhenUpdating(),
 
             Text::make("URL", function() {
-                $url = "https://res.cloudinary.com/de06firjo/image/upload/c_fill,g_auto,w_1000/" . $this->filename;
+                $url = Storage::disk(
+                    config('nova-blogify.image_settings.disk')
+                )->url($this->filename);
                 return "<a target='_blank' href='$url'>$url</a>";
             })->asHtml(),
 
